@@ -23,7 +23,7 @@ n_movies = np.max(raw_data[:, 1])
 shape = (n_users + 1, n_movies+ 1)
 print(shape)
 
-adj_matrix = np.ndarray(shape, dtype=int)
+adj_matrix = np.ndarray(shape, dtype=int) # shape에 맞춰서 0으로 채워줌
 for user_id, movie_id, rating, time in raw_data:
   adj_matrix[user_id][movie_id] = rating
 

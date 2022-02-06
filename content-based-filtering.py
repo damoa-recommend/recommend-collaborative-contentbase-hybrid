@@ -31,7 +31,8 @@ n_users = np.max(raw_data[:, 0])
 n_movies = np.max(raw_data[:, 1])
 shape = (n_users + 1, n_movies + 1) # (943, 1682)
 
-adj_matrix = np.ndarray(shape, dtype=int)
+adj_matrix = np.ndarray(shape, dtype=int) # shape에 맞춰서 0으로 채워줌
+
 for user_id, movie_id, rating, time in raw_data:
   # TODO: 만약, 평가 점수가 아닌 1을 넣는다면 봤는지 안봤는지에 대해서 추천을 시도
   # rating값을 넣으면 평가 점수를 기반으로 추천을 수행함
