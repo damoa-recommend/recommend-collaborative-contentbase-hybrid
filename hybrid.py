@@ -33,6 +33,7 @@ svd = TruncatedSVD(n_components=5, n_iter=5, random_state=None)
 svd.fit(adj_matrix)
 print(svd.components_) # 특잇값 분해된 행렬을 다시 합친 결과 np.dot(np.dot(U, S), VT)
 # LSA 알고리즘에선 이용할 땐 다시 복원한 행렬을 기반으로 행 백터를 정렬하여 상위 n개의 단어가 해당 문서의 주요 단어가 된다.
+# LSA 알고리즘 샘플 ===> https://github.com/damoa-recommend/SVD-LSA
 # 사용자 기반, 아이템 기반 추천시엔 사용자, 아이템 기반으로 분해된 행렬을 이용하여 내적, 유클리드 거리, 코사인 유사도를 활용하여 추천을 진행한다.
 
 U, S, VT = randomized_svd(adj_matrix, n_components=2, n_iter=5, random_state=None) # 분해
