@@ -38,3 +38,25 @@
 학습 과정에 나오지 않은 항목은 임베딩을 만들 수 없음
 추가 특성을 사용하기 어려움
 ```
+
+# configuration
+
+### dependencies
+
+```
+scikit-surprise
+sklearn
+nltk
+```
+
+```
+$ poetry install
+```
+
+```
+$ python content-based-filtering.py
+
+$ python collaborative-filtering.py
+
+$ python hybrid.py
+```
