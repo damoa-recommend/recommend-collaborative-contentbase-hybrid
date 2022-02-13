@@ -1,4 +1,6 @@
 '''
+사용자 기반 협업 필터
+
 유사도 기반으로 추천
 
 장점: 많은 수의 사용자를 대상으로 쉽게 확장 가능
@@ -21,6 +23,7 @@ def get_recommend(my_vector, best_match_vector):
   return recommend_movies
 
 data = Dataset.load_builtin('ml-100k', prompt=False) # [('196', '242', 3.0, '881250949')] 사용자, 영화, 평점, 시간
+print(data.raw_ratings[:5])
 raw_data = np.array(data.raw_ratings, dtype=int)
 
 # 첫 번째 두 번째 컬럼은 사용자와 영화의 유니크 값인 ID를 의미한다. 기존 데이터는 1부터 시작하므로 1을 빼서 0부터 시작하도록 변경
@@ -55,7 +58,7 @@ for user_id, user_vector in enumerate(adj_matrix):
       best_match_vector = user_vector
 
 print()
-print('내적을 이용한 컨텐츠 기반 추천')
+print('내적을 이용한 사용자 기반 추천')
 print(best_match, best_match_id, best_match_vector)
 
 way1_recommend = get_recommend(my_vector, best_match_vector)
@@ -76,7 +79,7 @@ for user_id, user_vector in enumerate(adj_matrix):
       best_match_vector = user_vector
 
 print()
-print('유클리드 거리를 이용한 컨텐츠 기반 추천')
+print('유클리드 거리를 이용한 사용자 기반 추천')
 print(best_match, best_match_id, best_match_vector)
 
 way2_recommend = get_recommend(my_vector, best_match_vector)
@@ -102,7 +105,7 @@ for user_id, user_vector in enumerate(adj_matrix):
       best_match_vector = user_vector
 
 print()
-print('코사인 유사도 이용한 컨텐츠 기반 추천')
+print('코사인 유사도 이용한 사용자 기반 추천')
 print(best_match, best_match_id, best_match_vector)
 
 way2_recommend = get_recommend(my_vector, best_match_vector)
